@@ -21,6 +21,15 @@ app.component('example-component', ExampleComponent);
 import Login from './components/Login.vue';
 app.component('login-component', Login);
 
+import Home from './components/Home.vue';
+app.component('home-component', Home);
+
+import Filmes from './components/Filmes.vue';
+app.component('filmes-component', Filmes);
+
+import Input from './components/Input.vue';
+app.component('input-component', Input);
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
