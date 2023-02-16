@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-Lista de filmes
+Últimos filmes adicionados
 @endsection
 
 @section('content')

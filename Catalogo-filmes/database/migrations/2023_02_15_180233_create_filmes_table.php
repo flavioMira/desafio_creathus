@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title', 50);
             $table->string('author', 30);
+            $table->string('thumbnail',150);
             $table->text('description');
             $table->string('category', 15);
             $table->integer('year');

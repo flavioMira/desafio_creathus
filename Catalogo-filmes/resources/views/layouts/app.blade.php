@@ -27,9 +27,9 @@
 <body class="antialiased">
 
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-md">
+        <nav class="navbar navbar-expand-md bg-white-100 dark:bg-gray-800 shadow-md">
             <div class="container">
-                <a class="navbar-brand fs-3 text-gray-600 dark:text-gray-400 ms-3">
+                <a class="navbar-brand fs-3  ms-3 text-orange">
                 @yield('title')
                 </a>
 
@@ -45,7 +45,7 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav ms-auto ">
                         <!-- Authentication Links -->
                         @guest
                         @if (Route::has('login'))
@@ -61,7 +61,7 @@
                         @endif
                         @else
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-gray-500" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
 
