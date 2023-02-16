@@ -26,7 +26,7 @@ class Filme extends Model
             'category' => 'required',
             'year' => 'required',
             'duration' => 'required',
-            'thumbnail' => 'required|file|mimes:png,jpeg'
+            'thumbnail' => 'required|file|mimes:png,jpeg,jpg'
         ];
     }
 
@@ -34,7 +34,7 @@ class Filme extends Model
         return [
             'required' => 'O campo :attribute é obrigatório',
             'unique' => 'Já existe um filme com esse nome',
-            'thumbnail' => 'O arquivo precisa ser uma imagem png ou jpeg',
+            'thumbnail' => 'O arquivo precisa ser uma imagem png',
         ];
     }
 }
