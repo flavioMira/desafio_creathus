@@ -3,13 +3,13 @@
         <p class="fs-5 text-orange"> Próximos Filmes </p>
     </div>
     <div class="row p-2">
-        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 mb-4 p-2" v-for="f in filmes.reverse()" :key="f.id">
+        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 mb-4 p-2"  v-for="f in filmes.reverse()" :key="f.id">
             <div class="card dark:bg-gray-800 h-100">
                 <img :src="'/storage/' + f.thumbnail" class="card-img-top img-fluid h-75" alt="">
                 <div class="card-body">
                     <p class="card-title"> {{ f.title }} ({{ f.year }})</p>
                     <a href="#" class="btn btn-orange justify-end stretched-link" data-bs-toggle="modal"
-                        data-bs-target="#modalShowFilme">ver mais</a>
+                        data-bs-target="#modalShowFilme" @click="setStore(f)">ver mais</a>
                 </div>
             </div>
         </div>
@@ -88,9 +88,16 @@
     </modal-component>
 
     <!-- Modal Visualizar Filme-->
-    <modal-component id="modalShowFilme" aria="modalShowFilme" titulo="Visualizar Filme">
+    <modal-component id="modalShowFilme" aria="modalShowFilme" titulo="Informaçõe do Filme">
         <template v-slot:conteudo>
-            aqui
+            <div class="row p-0"
+                :style="'height:60vh;overflow: hidden;-webkit-mask-image: linear-gradient(to top, transparent 10%, black 100%);background-image: url(/storage/' + $store.state.item.background + ');background-position: center top;background-size: 100% auto;'">
+            </div>
+            <div class="row container-fluid mt-6">
+                <div class="col-12">
+                    <h1>{{ $store.state.item.title }} ({{ $store.state.item.year }})</h1>
+                </div>
+            </div>
         </template>
 
         <template v-slot:rodape>
@@ -106,6 +113,8 @@ export default {
     props: [],
     data() {
         return {
+            
+            componentKey: 0,
             urlBase: 'http://localhost:8000/api/filme',
             filmes: [],
             titleFilme: '',
@@ -119,6 +128,9 @@ export default {
         }
     },
     methods: {
+        setStore(f) {
+            this.$store.state.item = f
+        },
         salvarFilme() {
 
             let formData = new FormData();
@@ -140,7 +152,7 @@ export default {
 
             axios.post(this.urlBase, formData, config)
                 .then(response => {
-                    carregarLista()
+                    this.componentKey += 1;
                 })
                 .catch(errors => {
                     console.log(errors)

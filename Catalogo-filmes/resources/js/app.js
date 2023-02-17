@@ -6,6 +6,25 @@
 
 import './bootstrap';
 import { createApp } from 'vue';
+import { createStore } from 'Vuex';
+
+
+const store = createStore({
+    state () {
+      return {
+        item: {},
+        count: 0
+      }
+    },
+    mutations: {
+      increment (state) {
+        state.count++
+      }
+    }
+  })
+
+
+
 
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
@@ -13,7 +32,8 @@ import { createApp } from 'vue';
  * to use in your application's views. An example is included for you.
  */
 
-const app = createApp({});
+const app = createApp({store});
+app.use(store)
 
 import ExampleComponent from './components/ExampleComponent.vue';
 app.component('example-component', ExampleComponent);
