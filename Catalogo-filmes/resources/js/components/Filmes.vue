@@ -20,6 +20,18 @@
     <!-- Modal Adicionar Filme-->
     <modal-component id="modalAddFilme" aria="modalAddFilme" titulo="Adicionar Filme">
         <template v-slot:conteudo>
+            <alert-component role="success" v-if="responseStatus == 'sucesso'">
+                <template v-slot:destaque>{{ AlertMSG }}</template>
+            </alert-component>
+            
+            <alert-component role="danger" v-if="responseStatus == 'erro'">
+                <template v-slot:destaque>Erro ao tentar cadastrar o Filme<hr></template>
+                <template v-slot:msg>
+                    <ul v-if="AlertMSG">
+                        <li v-for="e, key in AlertMSG" :key="key">{{ key }} - {{ e[0] }}</li>
+                    </ul>
+                </template>
+            </alert-component>
             <div class="row">
                 <div class="form-group col-sm-12 col-md-6 mb-3">
                     <input-component titulo="Título do Filme" id="title" id-help="titleHelp" texto-ajuda="Titulo do Filme">
@@ -95,9 +107,15 @@
             </div>
             <div class="row container-fluid mt-6">
                 <div class="col-12">
-                    <h1>{{ $store.state.item.title }} ({{ $store.state.item.year }})</h1>
+                    <h1>{{ $store.state.item.title }} ({{ $store.state.item.year }}) - {{ $store.state.item.author }}</h1>
                 </div>
             </div>
+            <div class="row container-fluid mt-6">
+                <div class="col-12">
+                    <p class="fs-4">{{ $store.state.item.description }}</p>
+                </div>
+            </div>
+
         </template>
 
         <template v-slot:rodape>
@@ -113,7 +131,8 @@ export default {
     props: [],
     data() {
         return {
-            
+            AlertMSG: '',
+            responseStatus: '',
             componentKey: 0,
             urlBase: 'http://localhost:8000/api/filme',
             filmes: [],
@@ -152,17 +171,19 @@ export default {
 
             axios.post(this.urlBase, formData, config)
                 .then(response => {
-                    this.componentKey += 1;
+                    console.log(response)
+                    this.responseStatus = "sucesso";
+                    this.AlertMSG = "Filme Cadastrado com sucesso";
                 })
-                .catch(errors => {
-                    console.log(errors)
+                .catch(errors => {                  
+                    this.responseStatus = "erro";
+                    this.AlertMSG = errors.response.data.errors
                 })
         },
         carregarLista() {
             axios.get('http://localhost:8000/api/filme')
                 .then(response => {
                     this.filmes = response.data
-                    console.log(this.filmes)
                 })
                 .catch(errors => {
                     console.log(errors)
