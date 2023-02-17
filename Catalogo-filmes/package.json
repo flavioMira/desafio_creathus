@@ -19,9 +19,5 @@
     "dependencies": {
         "bootstrap-icons": "^1.10.3",
         "vuex": "^4.1.0"
-    },
-    "engines": {
-        "npm": "^8.19.2",
-        "node": "^16.17.1"
     }
 }
