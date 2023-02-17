@@ -37,6 +37,8 @@ class FilmeController extends Controller
 
         $img = $request->file('thumbnail');
         $img_urn = $img->store('img/thumbnails','public');
+        $img_fundo = $request->file('background');
+        $img_fundo_urn = $img_fundo->store('img/backgrounds','public');
 
         $filme = $this->filme->create([
             'title' => $request->title,
@@ -46,6 +48,7 @@ class FilmeController extends Controller
             'year' => $request->year,
             'duration' => $request->duration,
             'thumbnail' => $img_urn,
+            'background' => $img_fundo_urn,
         ]);
         return response()->json($filme, 201);
     }
@@ -104,12 +107,18 @@ class FilmeController extends Controller
         if($request->file('thumbnail')) {
             Storage::disk('public')->delete($filme->thumbnail);
         }
+        if($request->file('background')) {
+            Storage::disk('public')->delete($filme->background);
+        }
         
         $img = $request->file('thumbnail');
         $img_urn = $img->store('img/thumbnails','public');
+        $img_fundo = $request->file('background');
+        $img_fundo_urn = $img_fundo->store('img/backgrounds','public');
 
         $filme->fill($request->all());
         $filme->thumbnail = $img_urn;
+        $filme->background = $img_fundo_urn;
 
         $filme->save();
 
@@ -133,6 +142,7 @@ class FilmeController extends Controller
 
         
         Storage::disk('public')->delete($filme->thumbnail);
+        Storage::disk('public')->delete($filme->background);
 
         $filme->delete();
         return response()->json(["msg" => "O Filme foi excluído com sucesso!"], 200);

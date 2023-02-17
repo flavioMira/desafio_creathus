@@ -30,6 +30,9 @@ app.component('filmes-component', Filmes);
 import Input from './components/Input.vue';
 app.component('input-component', Input);
 
+import Modal from './components/Modal.vue';
+app.component('modal-component', Modal);
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue

@@ -27,13 +27,21 @@
 <body class="antialiased">
 
     <div id="app" class="row g-0">
-        <div class="col-auto dark:bg-gray-800 border-end border-secondary border-opacity-25">
+        <div class="col-auto dark:bg-gray-800 border-end border-secondary border-opacity-25 d-none d-md-block">
             <div class="d-flex align-items-center flex-column p-2  sticky-top" >
-                <div class=" py-3 d-flex justify-content-center">
+                <div class=" py-3 d-flex justify-content-center border-bottom border-secondary border-opacity-25">
                     <a  href="{{ route('home') }}">
-                        <img src="{{ asset('img/instituto-creathus-squarelogo.svg') }}" width='50' />
+                        <img src="{{ asset('img/instituto-creathus-squarelogo.svg') }}" width='60' />
                     </a>
                 </div>
+                <ul class="nav text-center flex-column mb-auto w-100 pb-3">
+                                <li class="nav-item border-bottom border-secondary border-opacity-25">
+                                    <a class="nav-link link-orange" href=""><i class="bi bi-house fs-3 align-middle"></i><br/>Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link link-orange" href="#"  data-bs-toggle="modal" data-bs-target="#modalAddFilme"><i class="bi bi-plus-circle fs-2 align-middle"></i><br/>Add</a>
+                                </li>
+                            </ul>
             </div>
         </div>
         <div class="col mx-0">

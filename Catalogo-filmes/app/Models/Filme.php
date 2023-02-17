@@ -15,7 +15,8 @@ class Filme extends Model
         'category',
         'year',
         'duration',
-        'thumbnail'
+        'thumbnail',
+        'background',
     ];
 
     public function rules(){
@@ -26,7 +27,8 @@ class Filme extends Model
             'category' => 'required',
             'year' => 'required',
             'duration' => 'required',
-            'thumbnail' => 'required|file|mimes:png,jpeg,jpg'
+            'thumbnail' => 'required|file|mimes:png,jpeg,jpg',
+            'background' => 'required|file|mimes:png,jpeg,jpg',
         ];
     }
 
@@ -35,6 +37,7 @@ class Filme extends Model
             'required' => 'O campo :attribute é obrigatório',
             'unique' => 'Já existe um filme com esse nome',
             'thumbnail' => 'O arquivo precisa ser uma imagem png',
+            'background' => 'O arquivo precisa ser uma imagem png',
         ];
     }
 }

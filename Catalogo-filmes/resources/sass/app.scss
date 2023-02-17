@@ -6,6 +6,7 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
 
 
         /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -70,15 +71,26 @@
 
         .btn-orange {
             --tw-bg-opacity: 1;
-            border: 1px solid #EF3B2D;
+            border: 1px solid rgb(239, 59, 45);
+            color: #EF3B2D;
+        }
+        .link-orange {
+            --tw-bg-opacity: 1;
             color: #EF3B2D;
         }
 
+        .link-orange:hover {
+            --tw-bg-opacity: 1;
+            color: #971d15;
+        }
+        .card:hover {
+            border-color: rgb(239, 59, 45);
+            box-shadow: 0px 0px 10px 2px rgb(239, 59, 45);
+          }
         .btn-orange:hover {
             --tw-bg-opacity: 1;
             background-color: rgb(239 59 45 / var(--tw-bg-opacity));
-    
-            color: #000000;
+            color: #fff;
         }
 
         .border-gray-200 {
