@@ -3,10 +3,10 @@ import laravel from 'laravel-vite-plugin';
 import vue from '@vitejs/plugin-vue';
 
 export default defineConfig({
-    plugins: [
     server: {
         https: true,
     },
+    plugins: [
         laravel({
             input: [
                 'resources/sass/app.scss',
