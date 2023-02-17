@@ -25,4 +25,11 @@ export default defineConfig({
             vue: 'vue/dist/vue.esm-bundler.js',
         },
     },
+    build: {
+        rollupOptions: {
+          external: [            
+            'Vuex',
+          ],
+        }
+      },
 });
