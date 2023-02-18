@@ -23,17 +23,9 @@ export default defineConfig({
             },
         }),
     ],
-    build: {
-        rollupOptions: {
-            external: [
-                'Vuex',
-            ],
-        }
-    },
     resolve: {
         alias: {
             vue: 'vue/dist/vue.esm-bundler.js',
-            vuex: 'vuex/dist/vuex.esm-bundler.js',
         },
     },
 });
