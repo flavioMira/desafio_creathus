@@ -19,7 +19,7 @@ class FilmeController extends Controller
      */
     public function index()
     {
-        $filme = $this->filme->all();
+        $filme = $this->filme->latest()->paginate(12);
         return response()->json($filme, 200);
     }
 

@@ -26,13 +26,16 @@ const store = createStore({
 
 
 
+
+
+
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
  * registering components with the application instance so they are ready
  * to use in your application's views. An example is included for you.
  */
 
-const app = createApp({store});
+const app = createApp();
 app.use(store)
 
 import ExampleComponent from './components/ExampleComponent.vue';
