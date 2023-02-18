@@ -199,7 +199,6 @@ export default {
 
             axios.post(this.urlBase, formData, config)
                 .then(response => {
-                    console.log(response)
                     this.responseStatus = "sucesso";
                     this.AlertMSG = "Filme Cadastrado com sucesso";
                 })
@@ -213,7 +212,6 @@ export default {
                 .then(response => {
                     this.filmes = response.data.data
                     this.filmesLinks = response.data.links
-                    console.log(this.filmes)
                 })
                 .catch(errors => {
                     console.log(errors)
