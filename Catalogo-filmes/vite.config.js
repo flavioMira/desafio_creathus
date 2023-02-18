@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import vue from '@vitejs/plugin-vue';
+import { fileURLToPath } from 'node:url';
 
 export default defineConfig({
     server: {
@@ -26,7 +27,13 @@ export default defineConfig({
     build: {
         rollupOptions: {
             external: [
-                'Vuex',
+                'Vuex', fileURLToPath(
+                    new URL(
+                        'vuex/types/index',
+                        import.meta.url
+                    )
+                ),
+                /node_modules/
             ],
         }
     },
