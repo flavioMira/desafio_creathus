@@ -29,7 +29,7 @@ export default defineConfig({
             external: [
                 'Vuex', fileURLToPath(
                     new URL(
-                        'vuex/types/index',
+                        '/node_modules/vuex/types/index',
                         import.meta.url
                     )
                 ),
