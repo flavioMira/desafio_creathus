@@ -115,7 +115,7 @@
             </template>
 
             <template v-slot:rodape>
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
                 <button type="button" class="btn btn-primary" @click="salvarFilme()">Salvar</button>
             </template>
         </modal-component>
@@ -141,7 +141,8 @@
             </template>
 
             <template v-slot:rodape>
-                tbm
+                
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
             </template>
         </modal-component>
     </div>
@@ -199,7 +200,6 @@ export default {
 
             axios.post(this.urlBase, formData, config)
                 .then(response => {
-                    console.log(response)
                     this.responseStatus = "sucesso";
                     this.AlertMSG = "Filme Cadastrado com sucesso";
                 })
@@ -213,7 +213,6 @@ export default {
                 .then(response => {
                     this.filmes = response.data.data
                     this.filmesLinks = response.data.links
-                    console.log(this.filmes)
                 })
                 .catch(errors => {
                     console.log(errors)

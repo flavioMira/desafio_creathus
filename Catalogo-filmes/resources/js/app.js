@@ -6,7 +6,7 @@
 
 import './bootstrap';
 import { createApp } from 'vue';
-import { createStore } from 'Vuex';
+import { createStore } from '../../node_modules/vuex';
 
 
 const store = createStore({
