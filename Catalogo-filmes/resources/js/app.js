@@ -6,7 +6,11 @@
 
 import './bootstrap';
 import { createApp } from 'vue';
+<<<<<<< HEAD
 import { createStore } from '../../node_modules/vuex';
+=======
+import { createStore } from 'vuex';
+>>>>>>> 00f50853a8b25ad87781b6aced006b27a50d3570
 
 
 const store = createStore({
